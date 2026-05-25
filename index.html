@@ -66,7 +66,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="executive-summary" class="level2">
 <h2 class="anchored" data-anchor-id="executive-summary">Executive summary</h2>
-<p>Elder abalone are worth more on the commercial market, and are much better breeders than their younger counterparts. Still, the two traditional methods of ageing them, shell ring counting and stable oxygen isotopes, are limited to a laboratory setting. This paper seeks to create a predictive linear regression model to ascertain the ages of these abalone based on their physical characteristics, using AIC and BIC to inform model selection before running several further tests to confirm the associated choices. This model has the potential to open up the process of ageing abalone to a much wider audience, especially in industrial fishing practices, where the process of measuring the abalone can be done en masse. Whilst a model was generated, its accuracy was somewhat limited with a 0.64 R-Squared value, remaining a potential solution for filling the niche that is abalone dating.</p>
+<p>Older abalone are worth more on the commercial market, and are much better breeders than their younger counterparts. Still, the two traditional methods of ageing them, shell ring counting and stable oxygen isotopes, are limited to a laboratory setting. This paper seeks to create a predictive linear regression model to ascertain the ages of these abalone based on their physical characteristics, using AIC and BIC to inform model selection before running several further tests to confirm the associated choices. This model has the potential to open up the process of ageing abalone to a much wider audience, especially in industrial fishing practices, where the process of measuring the abalone can be done en masse. Whilst a model was generated, its accuracy was somewhat limited with a 0.64 R-Squared value, remaining a potential solution for filling the niche that is abalone age estimation.</p>
 </section>
 <section id="model-assumptions-and-transformation" class="level1">
 <h1>1. Model Assumptions and Transformation</h1>
@@ -162,6 +162,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+<p>The transformed model demonstrates noticeable improvement in homoskedasticity and linearity compared to the original specification. Although mild deviation from normality remains in the upper tail of the QQ plot, the residual spread is substantially more stable following logarithmic transformation.</p>
 </section>
 <section id="residual-behaviour-across-predictors" class="level2">
 <h2 class="anchored" data-anchor-id="residual-behaviour-across-predictors">1.5 Residual Behaviour Across Predictors</h2>
@@ -174,6 +175,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+<p>Residual patterns across most predictors appear more evenly distributed around zero after transformation, with reduced evidence of strong curvature or fanning. Minor heteroskedasticity remains among several weight-related predictors, although the overall variance structure is substantially more stable than in the initial model.</p>
+<p>The smoother residual trends for Height, Diameter, and Length suggest improved linearity assumptions under the transformed specification.</p>
 </section>
 <section id="outlier-treatment" class="level2">
 <h2 class="anchored" data-anchor-id="outlier-treatment">1.6 Outlier Treatment</h2>
@@ -338,7 +341,7 @@ Table 2. Out-of-Sample Performance Metrics
 
 </div>
 </div>
-<p>Model 1 achieved the lowest AIC, indicating the strongest in-sample fit among the candidate models. In contrast, Model 3 produced the lowest BIC due to its simpler specification.. However, the differences across all three models were relatively small, with Models 1 and 2 demonstrating very similar adjusted R-squared values.</p>
+<p>Model 1 achieved the lowest AIC and BIC, indicating the strongest in-sample fit among the candidate models. However, Model 2 achieved the lowest out-of-sample RMSE and MAE, so it was selected as the preferred final model due to its slightly better predictive performance and simpler specification.</p>
 <p>For out-of-sample performance, Model 2 achieved the lowest RMSE and MAE, suggesting slightly stronger predictive accuracy on unseen data. Given its comparable in-sample performance, reduced complexity, and marginally lower prediction error, Model 2 was selected as the preferred final model.</p>
 </section>
 <section id="model-stability-and-robustness-analysis" class="level1">
@@ -384,7 +387,7 @@ Table 2. Out-of-Sample Performance Metrics
 </section>
 <section id="loss-versus-dimension-plots" class="level2">
 <h2 class="anchored" data-anchor-id="loss-versus-dimension-plots">4.4 Loss versus dimension plots</h2>
-<p>This plot strips away the visualization of model stability focusing on a better way to observe model fit instead</p>
+<p>This plot focuses more directly on the trade-off between model complexity and model fit.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -407,14 +410,22 @@ Table 2. Out-of-Sample Performance Metrics
 <section id="references" class="level1">
 <h1>6. References</h1>
 <div style="padding-left: 36px; text-indent: -36px;">
-<p>Fox, J. (2024). <i>car package</i>. RDocumentation.https://www.rdocumentation.org/packages/car/versions/3.1-3</p>
+<p>Fox, J. (2024). <i>car package</i>. RDocumentation. https://www.rdocumentation.org/packages/car/versions/3.1-3</p>
 <p><br></p>
-<p>Kuhn, M. (2019). <i>The caret package</i>.https://topepo.github.io/caret/</p>
+<p>Kuhn, M. (2019). <i>The caret package</i>. https://topepo.github.io/caret/</p>
 <p><br></p>
 <p>Müller, S., &amp; Welsh, A. H. (2010). <i>On model selection curves</i>. International Statistical Review, 78(2), 240–256. https://doi.org/10.1111/j.1751-5823.2010.00108.x</p>
 <p><br></p>
 <p>Wickham, H., Averick, M., Bryan, J., et al.&nbsp;(2019). <i>Welcome to the Tidyverse</i>. Journal of Open Source Software, 4(43), 1686. https://doi.org/10.21105/joss.01686</p>
 </div>
+</section>
+<section id="technical-stack" class="level1">
+<h1>7. Technical Stack:</h1>
+<p>• R • Statistical Learning • Linear Regression • Model Selection (AIC/BIC/Subsets) • Bootstrap Stability Analysis • ggplot2 / tidyverse / Quarto</p>
+<section id="tools-used" class="level2">
+<h2 class="anchored" data-anchor-id="tools-used">7.1 Tools Used</h2>
+<p>R, ggplot2, caret, leaps, broom, GGally, kableExtra, patchwork, Quarto</p>
+</section>
 </section>
 
 </main>
