@@ -26,7 +26,7 @@ This project develops and evaluates multiple regression-based statistical learni
 
 ## Live Report
 
-https://stacyngo2007.github.io/abalone-age-prediction/
+https://stacyngo2007.github.io/abalone-statistical-learning/
 
 ## Dataset
 
